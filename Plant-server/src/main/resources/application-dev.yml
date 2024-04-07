@@ -1,0 +1,14 @@
+plant:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    host: 8.130.97.160
+    port: 3306
+    database: plant
+    username: soe
+    password: gitm2060
+  alioss:
+    endpoint: oss-cn-wulanchabu.aliyuncs.com
+    accessKeyId: LTAI5t9WpXRs1BFth4NtiY8f
+    accessKeySecret: UdIgR9S2SlLCREcwLqgQGJjSIXwIn0
+    bucketName: soest-plants
+
