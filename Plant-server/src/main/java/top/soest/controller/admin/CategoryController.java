@@ -12,7 +12,7 @@ import top.soest.result.Result;
 @RequestMapping("/admin/category")
 @Slf4j
 @Api(tags = "分类管理")
-public class categoryController {
+public class CategoryController {
 
 	@PostMapping
 	public Result<Category> add(@RequestBody CategoryDTO speciesDTO) {

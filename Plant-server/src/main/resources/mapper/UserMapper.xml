@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.soest.mapper.UserMapper">
+    <insert id="addUser">
+        insert into user (username, account, password, email, create_time, phone, balance, card_id, status)
+        VALUES (#{userName},#{account},#{password},#{email},#{createTime},#{phone},0,#{cardId},#{status})
+    </insert>
+
+    <select id="getByMap" resultType="top.soest.entity.User">
+        select * from user
+        <where>
+            <if test="id != null">
+                id = #{id}
+            </if>
+            <if test="userName != null and userName != ''">
+                user_name = #{userName}
+            </if>
+            <if test="account != null and account != ''">
+                account = #{account}
+            </if>
+            <if test="password != null and password != ''">
+                password = #{password}
+            </if>
+            <if test="email != null and email != ''">
+                email = #{email}
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime}
+            </if>
+            <if test="phone != null and phone != ''">
+                phone = #{phone}
+            </if>
+            <if test="status != null">
+                status = #{status}
+            </if>
+        </where>
+    </select>
+
+
+</mapper>

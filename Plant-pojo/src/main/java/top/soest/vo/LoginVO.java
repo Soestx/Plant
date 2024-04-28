@@ -20,8 +20,8 @@ public class LoginVO {
 	@ApiModelProperty(value = "用户昵称")
 	private String username;
 
-	@ApiModelProperty(value = "真实姓名")
-	private String name;
+	@ApiModelProperty(value = "用户账号")
+	private String account;
 
 	@ApiModelProperty(value = "用户token")
 	private String token;

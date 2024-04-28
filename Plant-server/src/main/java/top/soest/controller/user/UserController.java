@@ -7,12 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import top.soest.constant.JwtClaimsConstant;
 import top.soest.dto.LoginDTO;
+import top.soest.dto.UserDTO;
 import top.soest.entity.Manager;
+import top.soest.entity.User;
 import top.soest.properties.JwtProperties;
 import top.soest.result.Result;
 import top.soest.service.UserService;
 import top.soest.utils.JwtUtil;
 import top.soest.vo.LoginVO;
+import top.soest.vo.UserVO;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,10 +37,10 @@ public class UserController {
 
 		log.info("登录信息：{}", loginDTO);
 
-		Manager manager = userService.userLogin(loginDTO);
+		User user = userService.userLogin(loginDTO);
 
 		Map<String, Object> claims = new HashMap<>() ;
-		claims.put(JwtClaimsConstant.EMP_ID, manager.getId());
+		claims.put(JwtClaimsConstant.USER_ID, user.getId());
 		String token = JwtUtil.createJWT(
 				jwtProperties.getAdminSecretKey(),
 				jwtProperties.getAdminTtl(),
@@ -47,9 +50,9 @@ public class UserController {
 		log.info("jwt令牌：{}", token);
 
 		LoginVO loginVO = LoginVO.builder()
-				.id(manager.getId())
-				.name(manager.getName())
-				.username(manager.getAccount())
+				.id(user.getId())
+				.username(user.getUserName())
+				.username(user.getAccount())
 				.token(token)
 				.build() ;
 
@@ -58,18 +61,20 @@ public class UserController {
 
 	@PostMapping
 	@ApiOperation(value = "用户注册", notes = "注册")
-	public Result register(@RequestBody LoginDTO loginDTO) {
+	public Result register(@RequestBody UserVO userVO) {
 
-		log.info("注册信息：{}", loginDTO);
+		log.info("注册信息：{}", userVO);
 		//TODO:用户注册
+		userService.register(userVO);
 		return Result.success();
 	}
 
 	@GetMapping("/info")
 	@ApiOperation(value = "获取用户信息", notes = "获取用户信息")
-	public Result<Manager> getInfo() {
+	public Result<UserVO> getInfo() {
 
 		//TODO:获取用户信息
+
 		return Result.success();
 	}
 

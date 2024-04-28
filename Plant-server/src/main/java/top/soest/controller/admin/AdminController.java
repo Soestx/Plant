@@ -22,7 +22,7 @@ import java.util.Map;
 @RequestMapping("/admin")
 @Api(tags = "管理员相关接口")
 @Slf4j
-public class adminController {
+public class AdminController {
 
 	@Autowired
 	JwtProperties jwtProperties ;
@@ -50,8 +50,8 @@ public class adminController {
 
 		LoginVO loginVO = LoginVO.builder()
 				.id(manager.getId())
-				.name(manager.getName())
-				.username(manager.getAccount())
+				.username(manager.getUserName())
+				.account(manager.getAccount())
 				.token(token)
 				.build() ;
 
