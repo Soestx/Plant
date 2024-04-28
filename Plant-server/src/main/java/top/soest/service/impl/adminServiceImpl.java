@@ -15,7 +15,7 @@ import top.soest.exception.AccountLockedException;
 import top.soest.exception.AccountNotFoundException;
 import top.soest.exception.NoPermissionException;
 import top.soest.exception.PasswordErrorException;
-import top.soest.mapper.adminMapper;
+import top.soest.mapper.AdminMapper;
 import top.soest.service.adminService;
 
 import java.time.LocalDateTime;
@@ -27,7 +27,7 @@ import java.util.Objects;
 public class adminServiceImpl implements adminService {
 
 	@Autowired
-	adminMapper adminMapper;
+	AdminMapper adminMapper;
 
 	@Override
 	public Manager ManagerLogin(LoginDTO loginDTO) {

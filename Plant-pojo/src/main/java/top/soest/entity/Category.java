@@ -13,4 +13,6 @@ public class Category implements Serializable {
     private String name;
 
     private String info;
+
+    private Integer type;
 }

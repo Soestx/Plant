@@ -7,8 +7,8 @@ plant:
     username: root
     password: gitm2060
   alioss:
-    endpoint: oss-cn-wulanchabu.aliyuncs.com
-    accessKeyId: LTAI5t9WpXRs1BFth4NtiY8f
-    accessKeySecret: UdIgR9S2SlLCREcwLqgQGJjSIXwIn0
-    bucketName: soest-plants
+    endpoint:
+    accessKeyId:
+    accessKeySecret:
+    bucketName:
 

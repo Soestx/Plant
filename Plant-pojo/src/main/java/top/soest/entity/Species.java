@@ -52,5 +52,7 @@ public class Species implements Serializable {
 
     private Long createUser;
 
+    private Long updateUser;
+
     private Integer status;
 }
