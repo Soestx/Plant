@@ -1,8 +1,9 @@
 plant:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    host: localhost
+    host: 8.130.97.160
     port: 3306
-    database: plants
-    username: root
+    database: plant
+    username: soe
     password: gitm2060
+
