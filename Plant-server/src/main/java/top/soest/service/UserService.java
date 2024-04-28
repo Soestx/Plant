@@ -10,4 +10,8 @@ public interface UserService {
 	User userLogin(LoginDTO loginDTO);
 
 	void register(UserVO userVO);
+
+	UserVO getInfoById(Long id);
+
+	void updateInfo(UserDTO userDTO);
 }

@@ -6,6 +6,33 @@
         insert into user (username, account, password, email, create_time, phone, balance, card_id, status)
         VALUES (#{userName},#{account},#{password},#{email},#{createTime},#{phone},0,#{cardId},#{status})
     </insert>
+    <update id="updateUser">
+        update user
+        <set>
+            <if test="userName != null">
+                user_name = #{userName}
+            </if>
+            <if test="password != null">
+                password = #{password}
+            </if>
+            <if test="email != null">
+                email = #{email}
+            </if>
+            <if test="phone != phone">
+                user_name = #{userName}
+            </if>
+            <if test="balance != phone">
+                balance = #{balance}
+            </if>
+            <if test="cardId != phone">
+                card_id = #{cardId}
+            </if>
+            <if test="status != phone">
+                ustatus = #{status}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
 
     <select id="getByMap" resultType="top.soest.entity.User">
         select * from user

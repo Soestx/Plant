@@ -1,8 +1,20 @@
 package top.soest.vo;
 
+import io.swagger.annotations.ApiModel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@ApiModel(value = "SpeciesVO", description = "植物展示信息")
 public class SpeciesVO implements Serializable {
 
 	private String cname;
@@ -11,27 +23,27 @@ public class SpeciesVO implements Serializable {
 
 	private String info;
 
-	private Long kinddom;
+	private String kinddom;
 
-	private Long phylum;
+	private String phylum;
 
-	private Long classs;
+	private String classs;
 
-	private Long order;
+	private String order;
 
-	private Long family;
+	private String family;
 
-	private Long genus;
+	private String genus;
 
 	private Long contributorNum;
 
-	private String contributors;
+	private List<String> contributorsList;
 
 	private String model;
 
 	private Long imageNum;
 
-	private String images;
+	private List<String> imagesList;
 
 	private LocalDateTime updateTime;
 

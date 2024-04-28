@@ -1,6 +1,7 @@
 package top.soest.controller.admin;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,7 @@ import top.soest.result.Result;
 public class CategoryController {
 
 	@PostMapping
+	@ApiOperation(value = "新增分类")
 	public Result<Category> add(@RequestBody CategoryDTO speciesDTO) {
 
 		log.info("新增分类信息：{}", speciesDTO);
@@ -25,6 +27,7 @@ public class CategoryController {
 	}
 
 	@PutMapping
+	@ApiOperation(value = "更新分类")
 	public Result<Category> update(@RequestBody CategoryDTO speciesDTO) {
 
 		log.info("更新分类信息：{}", speciesDTO);
@@ -35,6 +38,7 @@ public class CategoryController {
 	}
 
 	@DeleteMapping
+	@ApiOperation(value = "删除分类")
 	public Result delete(@RequestBody CategoryDTO speciesDTO) {
 
 		log.info("删除分类信息：{}", speciesDTO);

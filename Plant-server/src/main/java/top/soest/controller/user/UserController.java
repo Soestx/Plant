@@ -64,25 +64,24 @@ public class UserController {
 	public Result register(@RequestBody UserVO userVO) {
 
 		log.info("注册信息：{}", userVO);
-		//TODO:用户注册
 		userService.register(userVO);
 		return Result.success();
 	}
 
 	@GetMapping("/info")
 	@ApiOperation(value = "获取用户信息", notes = "获取用户信息")
-	public Result<UserVO> getInfo() {
+	public Result<UserVO> getInfo(Long id) {
 
-		//TODO:获取用户信息
-
-		return Result.success();
+		UserVO userVo = userService.getInfoById(id);
+		return Result.success(userVo);
 	}
 
 	@PutMapping("/info")
 	@ApiOperation(value = "更新用户信息", notes = "更新用户信息")
-	public Result updateInfo() {
+	public Result updateInfo(@RequestBody UserDTO userDTO) {
 
 		//TODO:更新用户信息
+		userService.updateInfo(userDTO);
 		return Result.success();
 	}
 }

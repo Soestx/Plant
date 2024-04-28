@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.soest.mapper.SpeciesMapper">
+
+
+    <select id="getByMap" resultType="top.soest.entity.Species">
+        select * from species
+        <where>
+            <if test="id != null">
+                id = #{id}
+            </if>
+            <if test="canme != canme and canme != ''">
+                cname like concat('%',#{cname},'%')
+            </if>
+            <if test="ename != null and ename !=''">
+                ename like concat('%',#{ename},'%')
+            </if>
+            <if test="info != null and info !=''">
+                info like concat('%',#{info},'%')
+            </if>
+            <if test="kinddom != null">
+                kinddom = #{kinddom}
+            </if>
+            <if test="phylum != null">
+                phylum = #{phylum}
+            </if>
+            <if test="classs != null">
+                classs = #{classs}
+            </if>
+            <if test="order != null">
+                order = #{order}
+            </if>
+            <if test="family != null">
+                family = #{family}
+            </if>
+            <if test="genus != null">
+                genus = #{genus}
+            </if>
+            <if test="contributors != null and contributors !=''">
+                contributors like concat('%',#{contributors},'%')
+            </if>
+            <if test="status != null">
+                status = #{status}
+            </if>
+        </where>
+        order by update_time desc
+    </select>
+    <select id="pageQuery" resultType="top.soest.entity.Species">
+        select * from species
+        <where>
+            <if test="id != null">
+                id = #{id}
+            </if>
+            <if test="canme != canme and canme != ''">
+                cname like concat('%',#{cname},'%')
+            </if>
+            <if test="ename != null and ename !=''">
+                ename like concat('%',#{ename},'%')
+            </if>
+            <if test="info != null and info !=''">
+                info like concat('%',#{info},'%')
+            </if>
+            <if test="kinddom != null">
+                kinddom = #{kinddom}
+            </if>
+            <if test="phylum != null">
+                phylum = #{phylum}
+            </if>
+            <if test="classs != null">
+                classs = #{classs}
+            </if>
+            <if test="order != null">
+                order = #{order}
+            </if>
+            <if test="family != null">
+                family = #{family}
+            </if>
+            <if test="genus != null">
+                genus = #{genus}
+            </if>
+            <if test="contributors != null and contributors !=''">
+                contributors like concat('%',#{contributors},'%')
+            </if>
+            <if test="status != null">
+                status = #{status}
+            </if>
+        </where>
+        order by update_time desc
+    </select>
+</mapper>

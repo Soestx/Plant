@@ -32,7 +32,9 @@ public class UserServiceImpl implements UserService {
 		String account = loginDTO.getAccount();
 		String password = loginDTO.getPassword();
 
-		User user = userMapper.getByAccount(account);
+		User user = new User();
+		user.setAccount(account);
+		user = userMapper.getByMap(user);
 
 		if (user == null) {
 			throw new AccountNotFoundException(MessageConstant.ACCOUNT_NOT_FOUND);
@@ -72,6 +74,27 @@ public class UserServiceImpl implements UserService {
 		user.setStatus(StatusConstant.ENABLE);
 		user.setPassword(DigestUtils.md5DigestAsHex(user.getPassword().getBytes()));
 		userMapper.addUser(user);
+	}
+
+	@Override
+	public UserVO getInfoById(Long id) {
+
+		User user = new User();
+		user.setId(id);
+		user = userMapper.getByMap(user);
+		if (user == null) {
+			throw new IdNotFoundException(MessageConstant.USER_NOT_FOUND);
+		}
+		UserVO userVO = new UserVO();
+		BeanUtils.copyProperties(user, userVO);
+		return userVO;
+	}
+
+	@Override
+	public void updateInfo(UserDTO userDTO) {
+		User user = new User();
+		BeanUtils.copyProperties(userDTO, user);
+		userMapper.updateUser(user);
 	}
 
 

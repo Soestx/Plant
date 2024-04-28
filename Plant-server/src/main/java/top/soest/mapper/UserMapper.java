@@ -14,4 +14,6 @@ public interface UserMapper {
 	void addUser(User user);
 
 	User getByMap(User user);
+
+	void updateUser(User user);
 }
