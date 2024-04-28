@@ -1,6 +1,6 @@
 package top.soest.exception;
 
-public class NoPermissionException extends Exception{
+public class NoPermissionException extends BaseException{
 
     public NoPermissionException() {
 

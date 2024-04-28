@@ -1,6 +1,6 @@
 package top.soest.exception;
 
-public class PasswordErrorException extends Exception{
+public class PasswordErrorException extends BaseException{
 
     public PasswordErrorException() {
 
