@@ -6,9 +6,3 @@ plant:
     database: plants
     username: root
     password: gitm2060
-  alioss:
-    endpoint:
-    accessKeyId:
-    accessKeySecret:
-    bucketName:
-
