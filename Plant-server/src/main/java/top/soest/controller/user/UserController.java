@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import top.soest.constant.JwtClaimsConstant;
 import top.soest.dto.LoginDTO;
 import top.soest.dto.UserDTO;
-import top.soest.entity.Manager;
 import top.soest.entity.User;
 import top.soest.properties.JwtProperties;
 import top.soest.result.Result;
@@ -80,7 +79,6 @@ public class UserController {
 	@ApiOperation(value = "更新用户信息", notes = "更新用户信息")
 	public Result updateInfo(@RequestBody UserDTO userDTO) {
 
-		//TODO:更新用户信息
 		userService.updateInfo(userDTO);
 		return Result.success();
 	}

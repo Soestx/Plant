@@ -1,6 +1,6 @@
 package top.soest.exception;
 
-public class UserNoLoginException extends Exception{
+public class UserNoLoginException extends BaseException{
 
     public UserNoLoginException() {
 

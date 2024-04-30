@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.soest.mapper.CategoryMapper">
+
+    <insert id="addKingdoms" useGeneratedKeys="true" keyProperty="id">
+        insert into kingdom
+        (fa_id, name, info, type)
+        values (#{faId},#{name},#{info},#{type})
+    </insert>
+    <insert id="addPhylums">
+        insert into phylum
+            (fa_id, name, info, type)
+        values (#{faId},#{name},#{info},#{type})
+    </insert>
+    <insert id="addClasses">
+        insert into class
+            (fa_id, name, info, type)
+        values (#{faId},#{name},#{info},#{type})
+    </insert>
+    <insert id="addOrders">
+        insert into orders
+            (fa_id, name, info, type)
+        values (#{faId},#{name},#{info},#{type})
+    </insert>
+    <insert id="addFamilies">
+        insert into family
+            (fa_id, name, info, type)
+        values (#{faId},#{name},#{info},#{type})
+    </insert>
+    <insert id="addGenus">
+        insert into genus
+            (fa_id, name, info, type)
+        values (#{faId},#{name},#{info},#{type})
+    </insert>
+
+
+
+    <update id="updateKingdoms">
+        update kingdom
+        <set>
+            <if test="faId != null">
+                fa_id = #{faId}
+            </if>
+            <if test="name != null">
+                name = #{name}
+            </if>
+            <if test="info != null">
+                info = #{info}
+            </if>
+            <if test="type != null">
+                type = #{type}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <update id="updatePhylums">
+        update phylum
+        <set>
+            <if test="faId != null">
+                fa_id = #{faId}
+            </if>
+            <if test="name != null">
+                name = #{name}
+            </if>
+            <if test="info != null">
+                info = #{info}
+            </if>
+            <if test="type != null">
+                type = #{type}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <update id="updateClasses">
+        update class
+        <set>
+            <if test="faId != null">
+                fa_id = #{faId}
+            </if>
+            <if test="name != null">
+                name = #{name}
+            </if>
+            <if test="info != null">
+                info = #{info}
+            </if>
+            <if test="type != null">
+                type = #{type}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <update id="updateOrders">
+        update orders
+        <set>
+            <if test="faId != null">
+                fa_id = #{faId}
+            </if>
+            <if test="name != null">
+                name = #{name}
+            </if>
+            <if test="info != null">
+                info = #{info}
+            </if>
+            <if test="type != null">
+                type = #{type}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <update id="updateFamilies">
+        update family
+        <set>
+            <if test="faId != null">
+                fa_id = #{faId}
+            </if>
+            <if test="name != null">
+                name = #{name}
+            </if>
+            <if test="info != null">
+                info = #{info}
+            </if>
+            <if test="type != null">
+                type = #{type}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <update id="updateGenus">
+        update genus
+        <set>
+            <if test="faId != null">
+                fa_id = #{faId}
+            </if>
+            <if test="name != null">
+                name = #{name}
+            </if>
+            <if test="info != null">
+                info = #{info}
+            </if>
+            <if test="type != null">
+                type = #{type}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <select id="getKingdoms" resultType="top.soest.entity.Category">
+        select * from kingdom
+        <where>
+            <if test=" id!= null">
+                id = #{id}
+            </if>
+            <if test="fa_id != null">
+                fa_id = #{faId}
+            </if>
+            <if test="name != null and name != ''">
+                name like concat('%',#{name},'%')
+            </if>
+            <if test="info != null and info != ''">
+                info like concat('%',#{info},'%')
+            </if>
+        </where>
+    </select>
+
+    <select id="getPhylums" resultType="top.soest.entity.Category">
+        select * from phylum
+        <where>
+            <if test=" id!= null">
+                id = #{id}
+            </if>
+            <if test="fa_id != null">
+                fa_id = #{faId}
+            </if>
+            <if test="name != null and name != ''">
+                name like concat('%',#{name},'%')
+            </if>
+            <if test="info != null and info != ''">
+                info like concat('%',#{info},'%')
+            </if>
+        </where>
+    </select>
+
+    <select id="getClasses" resultType="top.soest.entity.Category">
+        select * from class
+        <where>
+            <if test=" id!= null">
+                id = #{id}
+            </if>
+            <if test="fa_id != null">
+                fa_id = #{faId}
+            </if>
+            <if test="name != null and name != ''">
+                name like concat('%',#{name},'%')
+            </if>
+            <if test="info != null and info != ''">
+                info like concat('%',#{info},'%')
+            </if>
+        </where>
+    </select>
+
+    <select id="getOrders" resultType="top.soest.entity.Category">
+        select * from orders
+        <where>
+            <if test=" id!= null">
+                id = #{id}
+            </if>
+            <if test="fa_id != null">
+                fa_id = #{faId}
+            </if>
+            <if test="name != null and name != ''">
+                name like concat('%',#{name},'%')
+            </if>
+            <if test="info != null and info != ''">
+                info like concat('%',#{info},'%')
+            </if>
+        </where>
+    </select>
+
+    <select id="getFamilies" resultType="top.soest.entity.Category">
+        select * from family
+        <where>
+            <if test=" id!= null">
+                id = #{id}
+            </if>
+            <if test="fa_id != null">
+                fa_id = #{faId}
+            </if>
+            <if test="name != null and name != ''">
+                name like concat('%',#{name},'%')
+            </if>
+            <if test="info != null and info != ''">
+                info like concat('%',#{info},'%')
+            </if>
+        </where>
+    </select>
+
+    <select id="getGenus" resultType="top.soest.entity.Category">
+        select * from genus
+        <where>
+            <if test=" id!= null">
+                id = #{id}
+            </if>
+            <if test="fa_id != null">
+                fa_id = #{faId}
+            </if>
+            <if test="name != null and name != ''">
+                name like concat('%',#{name},'%')
+            </if>
+            <if test="info != null and info != ''">
+                info like concat('%',#{info},'%')
+            </if>
+        </where>
+    </select>
+
+
+</mapper>
